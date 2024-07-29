@@ -1,10 +1,11 @@
 <script setup>
-import LandingPage from "./Pages/LandingPage.vue";
-import SearchPage from "./Pages/SearchPage.vue";
-import Results from "./Pages/Results.vue";
+import { RouterLink, RouterView } from "vue-router";
 </script>
 <template>
-  <!-- <LandingPage /> -->
-  <!-- <SearchPage /> -->
-  <Results />
+  <nav>
+    <RouterLink to="/" />
+    <RouterLink to="/search" />
+    <RouterLink to="/results" />
+  </nav>
+  <RouterView />
 </template>

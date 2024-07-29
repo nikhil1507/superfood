@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <div class="flex bg-gray-200 p-3 items-center m-4 rounded-lg">
-    <input placeholder="Search" v-on:input="onInput" />
+    <input placeholder="Search" v-on:input="onInput" autofocus />
     <button>
       <div class="rounded-full overflow-hidden p-2">
         <FontAwesomeIcon :icon="faMagnifyingGlass" v-on:click="onClick" />

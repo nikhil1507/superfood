@@ -4,6 +4,8 @@ import { ref, onMounted } from "vue";
 import SearchBar from "../components/SearchBar.vue";
 import CardLabel from "../components/CardLabel.vue";
 import Label from "../components/Label.vue";
+import PopularCategories from "../components/wireframe/PopularCategories.vue";
+import TrendingCuisines from "../components/wireframe/TrendingCuisines.vue";
 
 const categories = ref([]);
 const trending = ref([]);
@@ -65,7 +67,8 @@ const handleLabelClick = async (event) => {
 <template>
   <SearchBar :onInput="handleInput" :onClick="handleSearch" />
   <p class="px-2 py-4 text-xl font-semibold">Popular Categories🔥</p>
-  <div class="px-2 py-1 flex overflow-x-auto">
+  <PopularCategories v-if="isCategoryLoading" />
+  <div v-else class="px-2 py-1 flex overflow-x-auto">
     <CardLabel
       v-for="category in categories"
       :key="category.id"
@@ -74,8 +77,10 @@ const handleLabelClick = async (event) => {
       :onClick="handleCardLabelClick"
     />
   </div>
+
   <p class="px-2 py-4 text-xl font-semibold">Trending Cuisines📈</p>
-  <div class="grid grid-cols-9 gap-4 px-2 py-1">
+  <TrendingCuisines v-if="isTrendingLoading" />
+  <div v-else class="grid grid-cols-9 gap-4 px-2 py-1">
     <Label
       v-for="trend in trending"
       :key="trend.strArea"

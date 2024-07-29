@@ -1,7 +1,8 @@
 <script setup>
+import { defineProps } from "vue";
+import { useRouter } from "vue-router";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { defineProps } from "vue";
 
 defineProps({
   additionalClasses: {
@@ -9,6 +10,12 @@ defineProps({
     default: "",
   },
 });
+
+const router = useRouter();
+
+const onClick = () => {
+  router.push("/search");
+};
 </script>
 
 <template>
@@ -20,8 +27,8 @@ defineProps({
       <p class="font-medium text-stone-100">Home</p>
       <p class="font-medium text-stone-100">Recipes</p>
       <p class="font-medium text-stone-100">About Us</p>
-      <div class="icon">
-        <FontAwesomeIcon :icon="faMagnifyingGlass" />
+      <div :onclick="onClick" class="icon">
+        <FontAwesomeIcon class="cursor-pointer" :icon="faMagnifyingGlass" />
       </div>
     </div>
   </div>
