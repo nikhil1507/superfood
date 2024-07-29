@@ -2,7 +2,7 @@
   <div
     class="flex flex-col justify-center items-center cursor-pointer bg-gray-200 p-3 mx-2 rounded-lg"
   >
-    <span class="size-20"></span>
+    <span class="size-16"></span>
   </div>
 </template>
 

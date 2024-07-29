@@ -1,89 +1,71 @@
 <template>
-  <div class="card">
-    <div class="image">
-      <img
-        src="https://assets.codepen.io/2002878/wake-up-and-code.jpg"
-        alt=""
-      />
-    </div>
-    <div class="content">
-      <h4>CodingStartup</h4>
-      <div class="description">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex quasi enim
-        facere commodi omnis...
+  <div class="container">
+    <div class="card">
+      <div class="card-img skeleton"></div>
+      <div class="card-body">
+        <h2 class="card-title skeleton"></h2>
+        <p class="card-intro skeleton"></p>
       </div>
-    </div>
-  </div>
-
-  <div class="card loading">
-    <div class="image"></div>
-    <div class="content">
-      <h4></h4>
-      <div class="description"></div>
     </div>
   </div>
 </template>
 
 <style scoped>
-:root {
-  --loading-grey: #ededed;
-}
-
-body {
-  background-color: #f6f6f6;
-  font-family: Helvetica;
-  font-size: 15px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  min-height: 100vh;
-}
-
 .card {
-  width: 320px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 300px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 100%;
   background-color: #fff;
-  border-radius: 6px;
+  box-shadow: 0 5px 10px 0 rgba(#000, 0.15);
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.12);
+  margin: 1rem;
+  box-shadow: 1px 2px 3px 4px #e5e7eb;
 }
 
-.image {
-  height: 200px;
+.card-img {
+  padding-bottom: 56.25%;
+  position: relative;
+  img {
+    position: absolute;
+    width: 100%;
+  }
 }
 
-.image img {
-  display: block;
-  width: 100%;
-  height: inherit;
-  object-fit: cover;
+.card-body {
+  padding: 1.5rem;
 }
 
-.content {
-  padding: 2rem 1.8rem;
+.card-title {
+  font-size: 1.25rem;
+  line-height: 1.33;
+  font-weight: 700;
+  &.skeleton {
+    min-height: 28px;
+    border-radius: 4px;
+  }
 }
 
-h4 {
-  margin: 0 0 1rem;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+.card-intro {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  &.skeleton {
+    min-height: 72px;
+    border-radius: 4px;
+  }
 }
 
-.description {
-  font-size: 1rem;
-  line-height: 1.4rem;
-}
-
-.loading .image,
-.loading h4,
-.loading .description {
-  background-color: var(--loading-grey);
+.skeleton {
   background: linear-gradient(
       100deg,
       rgba(255, 255, 255, 0) 40%,
       rgba(255, 255, 255, 0.5) 50%,
       rgba(255, 255, 255, 0) 60%
     )
-    var(--loading-grey);
+    #e5e7eb;
   background-size: 200% 100%;
   background-position-x: 180%;
   animation: 1s loading ease-in-out infinite;
@@ -95,15 +77,16 @@ h4 {
   }
 }
 
-.loading h4 {
-  min-height: 1.6rem;
-  border-radius: 4px;
-  animation-delay: 0.05s;
-}
-
-.loading .description {
-  min-height: 4rem;
-  border-radius: 4px;
-  animation-delay: 0.06s;
+.container {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 </style>

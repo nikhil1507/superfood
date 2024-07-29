@@ -14,5 +14,7 @@ import CardLabel from "../../components/wireframe/CardLabel.vue";
     <CardLabel />
     <CardLabel />
     <CardLabel />
+    <CardLabel />
+    <CardLabel />
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup>
 import axios from "axios";
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import SearchBar from "../components/SearchBar.vue";
 import CardLabel from "../components/CardLabel.vue";
 import Label from "../components/Label.vue";
@@ -12,6 +13,8 @@ const trending = ref([]);
 const isCategoryLoading = ref(false);
 const isTrendingLoading = ref(false);
 const searchQuery = ref("");
+
+const router = useRouter();
 
 async function loadCategories() {
   isCategoryLoading.value = true;
@@ -40,27 +43,23 @@ const handleInput = (e) => {
 };
 
 // Function to handle search event
-const handleSearch = async () => {
-  const res = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery.value}`
-  );
-  console.log(res.data);
+const handleSearch = () => {
+  // const res = await axios.get(
+  //   `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery.value}`
+  // );
+
+  router.push(`/results-search/${searchQuery.value}`);
+  // console.log(res.data);
 };
 
 // Function to handle clicks of card labels
 const handleCardLabelClick = async (e) => {
-  const res = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.srcElement.outerText}`
-  );
-  console.log(res.data);
+  router.push(`/results-categories/${e.srcElement.outerText}`);
 };
 
 // Function to handle clicks of label tags
-const handleLabelClick = async (event) => {
-  const res = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/filter.php?a=${event.srcElement.outerText}`
-  );
-  console.log(res.data);
+const handleLabelClick = (event) => {
+  router.push(`/results-trending/${event.srcElement.outerText}`);
 };
 </script>
 
