@@ -1,7 +1,14 @@
 <script setup>
+import { useRouter } from "vue-router";
 import Navbar from "../components/Navbar.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+const router = useRouter();
+
+const onClick = () => {
+  router.push("/search");
+};
 </script>
 
 <template>
@@ -12,6 +19,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
     </h1>
     <div
       class="cursor-pointer mt-3 flex bg-gray-200 p-3 rounded-3xl items-center justify-between w-3/5"
+      :onclick="onClick"
     >
       <p class="text-zinc-400 text-xl">Search</p>
       <div class="rounded-full p-2">

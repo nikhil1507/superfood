@@ -9,7 +9,8 @@
 
 ::-webkit-scrollbar-track {
   border-radius: 5px;
-  padding: 20px;
+  height: 2px;
+  width: 2px;
   -webkit-box-shadow: 0 0 1px rgba(125, 121, 121, 0.5);
 }
 
