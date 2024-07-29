@@ -16,6 +16,10 @@ const router = useRouter();
 const onClick = () => {
   router.push("/search");
 };
+
+const onHomeClick = () => {
+  router.replace("/");
+};
 </script>
 
 <template>
@@ -24,9 +28,14 @@ const onClick = () => {
   >
     <h1 class="font-bold text-2xl text-stone-100">Superfood!</h1>
     <div class="flex space-x-4 items-center">
-      <p class="font-medium text-stone-100">Home</p>
-      <p class="font-medium text-stone-100">Recipes</p>
-      <p class="font-medium text-stone-100">About Us</p>
+      <p
+        :onclick="onHomeClick"
+        class="cursor-pointer font-medium text-stone-100"
+      >
+        Home
+      </p>
+      <p class="cursor-pointer font-medium text-stone-100">Recipes</p>
+      <p class="cursor-pointer font-medium text-stone-100">About Us</p>
       <div :onclick="onClick" class="icon">
         <FontAwesomeIcon class="cursor-pointer" :icon="faMagnifyingGlass" />
       </div>
