@@ -27,7 +27,7 @@ To get started with the Food Recipe App, follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/nikhil1507/superfood.git
-   cd food-recipe-app
+   cd superfood
 
 2. **Install dependencies**:
    ```bash
